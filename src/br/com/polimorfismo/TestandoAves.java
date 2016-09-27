@@ -1,34 +1,21 @@
 package br.com.polimorfismo;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class TestandoAves {
 
 	public static void main(String[] args) {
 
-		System.out.println("Criando Collection do tipo Ave...");
-		List<Ave> avesCollection = new ArrayList<>();
-		System.out.println("Collection criada!");
+		Ave beijaFlor = new Ave("Beija-Flor-de-Peito-Azul", new VooBatido("vôo que as asas não param de bater!"));
+		Ave picaPau = new Ave("Pica-Pau-de-Testa-Amarela",
+				new VooBatidoComPlaneio("vôo alternando o batimento das asas para ganhar altitude com o planeio!"));
+		Ave pato = new Ave("Pato-Real", new VooMigratorio("vôo de migração de territórios longo e duradouro!"));
+		Ave urubu = new Ave("Urubu", new VooPlanadoTermico(
+				"vôo que usa as correntes térmicas ascendentes para subir. Deixa asas abertas. Faz manobras para não sair da bolha de ar quente!"));
 
-		System.out.println("\nCriando aves de diferentes tipos...");
-		BeijaFlor beijaFlor = new BeijaFlor("Beija-Flor-de-Peito-Azul", "Diferentes tons de azul", "Vôo Batido");
-		Pato pato = new Pato("Pato-Real", "Pelagem da cabeça verde com dorso em diferentes tons de cinza",
-				"Vôo Migratório");
-		PicaPau picaPau = new PicaPau("Pica-Pau-de-Testa-Amarela", "Diferentes tons de azul com cabeça amarela",
-				"Vôo Batido alterando com Planeio");
-		Urubu urubu = new Urubu("Urubú-de-Cabeça-Preta", "Preta", "Vôo Planado Térmico");
+		System.out.println(beijaFlor.voar());
+		System.out.println(picaPau.voar());
+		System.out.println(pato.voar());
+		System.out.println(urubu.voar());
 
-		System.out.println("\nAdicionando diferentes tipos de aves na Collection do tipo Ave...");
-		avesCollection.add(beijaFlor);
-		avesCollection.add(pato);
-		avesCollection.add(picaPau);
-		avesCollection.add(urubu);
-
-		System.out.println("\nFazendo uso do Polimorfismo...");
-		for (int i = 0; i < avesCollection.size(); i++) {
-			System.out.println(avesCollection.get(i).voar());
-		}
 	}
-
 }
